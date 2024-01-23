@@ -1,6 +1,5 @@
 package it.epicode.week3.day2;
 
-import javax.persistence.Persistence;
 import javax.swing.event.HyperlinkEvent;
 import java.time.LocalDate;
 
@@ -25,6 +24,21 @@ public class usaEvento {
   dao.save(evento3);
   dao.save(evento4);
   dao.save(evento5);
+
+  dao.getById(15);
+  dao.getById(16);
+  dao.getById(17);
+  dao.getById(18);
+  dao.getById(19);
+  dao.getById(20);
+
+  dao.delete(17);
+  dao.delete(18);
+  dao.delete(19);
+  dao.delete(20);
+  dao.delete(21);
+  dao.delete(22);
+
 
 
     }

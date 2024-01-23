@@ -1,9 +1,11 @@
 package it.epicode.week3.day2;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+
 
 public class EventoDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestioneeventi");
@@ -18,18 +20,16 @@ public class EventoDAO {
         et.commit();
         }catch (Exception ex){
             ex.getMessage();
-            em.close();
+//            em.close();
         }
     }
     public Evento getById(int id ){
         Evento e = em.find(Evento.class, id);
         try {
-        et.begin();
         em.refresh(e);
-        et.commit();
         }catch (Exception ex){
             ex.getMessage();
-            em.close();
+//            em.close();
         }
         return e;
     }
@@ -42,7 +42,7 @@ public class EventoDAO {
         et.commit();
         }catch (Exception ex){
             ex.getMessage();
-            em.close();
+//            em.close();
         }
     }
 

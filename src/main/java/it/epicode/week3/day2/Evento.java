@@ -1,18 +1,20 @@
 package it.epicode.week3.day2;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 @Entity
 @Table(name = "evento")
 public class Evento {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String titolo;
     @Column(name = "data_evento", unique = true)
     private LocalDate dataEvento;
     private String descrizione;
     @Column (name = "tipo_evento")
+    @Enumerated(EnumType.STRING)
     private  EventType tipoEvento;
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
