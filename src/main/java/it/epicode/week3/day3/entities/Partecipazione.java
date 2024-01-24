@@ -6,14 +6,13 @@ import jakarta.persistence.*;
 @Table(name = "partecipazioni")
 public class Partecipazione {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "partecipazione_id")
-    @SequenceGenerator(name = "partecipazione_id",  initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "persona_id")
+    @JoinColumn(name = "persona_fk")
     private Persona persona;
     @ManyToOne
-    @JoinColumn(name = "evento_id")
+    @JoinColumn(name = "evento_fk")
     private Evento evento;
     @Column (name = "stato_partecipazione")
     @Enumerated(EnumType.STRING)

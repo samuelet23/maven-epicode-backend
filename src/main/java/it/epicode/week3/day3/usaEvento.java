@@ -19,23 +19,39 @@ public class usaEvento {
 
         Persona persona1 = new Persona();
         persona1.setNome("Francesco");
-        Evento evento1 = new Evento();
-        evento1.setDescrizione("Evento di beneficienza");
-        Location location = new Location();
-        location.setNome("Villa Mirador");
-        Partecipazione partecipazione = new Partecipazione();
-
-        evento1.setLocation(location);
-
-        Persona p = personaDAO.getById(1);
-
-        partecipazione.setEvento(evento1);
-        partecipazione.setPersona(p);
-        partecipazione.setStatoPartecipazione(Stato.CONFERMATA);
-
-        persona1.setPartecipazioni(List.of(partecipazione));
-
+        persona1.setCognome("totti");
+        persona1.setEmail("francesco@gmail.com");
+        persona1.setSesso(Sesso.M);
+        persona1.setDataDiNascita(LocalDate.of(2000, 1, 11));
         personaDAO.save(persona1);
+
+
+        Location locationEvento1 = new Location();
+        locationEvento1.setNome("Villa Mirador");
+        locationEvento1.setCitta("Catania");
+        locationDAO.save(locationEvento1);
+
+        Evento evento1 = new Evento();
+        evento1.setDataEvento(LocalDate.of(2024, 5, 10));
+        evento1.setTipoEvento(EventType.PUBBLICO);
+        evento1.setDescrizione("Evento di beneficienza");
+        evento1.setTitolo("Balla sotto le stelle");
+        evento1.setNumeroMassimoPartecipanti(1000);
+        evento1.setLocation(locationEvento1);
+        daoEvento.save(evento1);
+
+        Partecipazione partecipazione = new Partecipazione();
+        partecipazione.setStatoPartecipazione(Stato.CONFERMATA);
+        partecipazione.setEvento(evento1);
+        partecipazione.setPersona(persona1);
+
+        partecipazioneDAO.save(partecipazione);
+
+
+
+
+
+
 
 
     }

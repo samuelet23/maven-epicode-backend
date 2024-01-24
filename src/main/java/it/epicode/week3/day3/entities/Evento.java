@@ -10,8 +10,7 @@ import java.util.List;
 @Table(name = "eventi")
 public class Evento {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "incremento")
-    @SequenceGenerator(name = "incremento", initialValue = 1, allocationSize = 2)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String titolo;
     @Column(name = "data_evento", unique = true)

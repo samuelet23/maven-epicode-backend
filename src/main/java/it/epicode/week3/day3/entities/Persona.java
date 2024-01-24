@@ -10,8 +10,7 @@ import java.util.List;
 @Table(name = "persone")
 public class Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_persona")
-    @SequenceGenerator(name = "id_persona", initialValue = 0, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
     private String cognome;
@@ -22,7 +21,7 @@ public class Persona {
     private Sesso sesso;
 
     @OneToMany(mappedBy = "persona", cascade = CascadeType.REMOVE)
-//    @OrderBy ("Evento.data_evento ASC")
+//    @OrderBy ("Evento.dataEvento ASC")
     private List<Partecipazione> partecipazioni;
 
     public Persona(){}
