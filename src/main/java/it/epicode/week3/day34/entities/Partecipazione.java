@@ -1,5 +1,6 @@
-package it.epicode.week3.day3.entities;
+package it.epicode.week3.day34.entities;
 
+import it.epicode.week3.day34.entities.type.Stato;
 import jakarta.persistence.*;
 
 @Entity

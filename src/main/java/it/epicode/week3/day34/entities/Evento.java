@@ -1,13 +1,14 @@
-package it.epicode.week3.day3.entities;
+package it.epicode.week3.day34.entities;
 
+import it.epicode.week3.day34.entities.type.EventType;
 import jakarta.persistence.*;
-import org.hibernate.query.Order;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "eventi")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +19,7 @@ public class Evento {
     private String descrizione;
     @Column (name = "tipo_evento")
     @Enumerated(EnumType.STRING)
-    private  EventType tipoEvento;
+    private EventType tipoEvento;
     @Column(name = "numero_massimo_partecipanti")
     private int numeroMassimoPartecipanti;
 

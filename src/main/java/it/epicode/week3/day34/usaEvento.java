@@ -1,13 +1,17 @@
-package it.epicode.week3.day3;
+package it.epicode.week3.day34;
 
-import it.epicode.week3.day3.dao.EventoDAO;
-import it.epicode.week3.day3.dao.LocationDAO;
-import it.epicode.week3.day3.dao.PartecipazioneDAO;
-import it.epicode.week3.day3.dao.PersonaDAO;
-import it.epicode.week3.day3.entities.*;
+import it.epicode.week3.day34.dao.EventoDAO;
+import it.epicode.week3.day34.dao.LocationDAO;
+import it.epicode.week3.day34.dao.PartecipazioneDAO;
+import it.epicode.week3.day34.dao.PersonaDAO;
+import it.epicode.week3.day34.entities.*;
+import it.epicode.week3.day34.entities.sottoClassiEvento.GaraDiAtletica;
+import it.epicode.week3.day34.entities.type.EventType;
+import it.epicode.week3.day34.entities.type.Sesso;
+import it.epicode.week3.day34.entities.type.Stato;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 public class usaEvento {
 
@@ -44,9 +48,13 @@ public class usaEvento {
         partecipazione.setStatoPartecipazione(Stato.CONFERMATA);
         partecipazione.setEvento(evento1);
         partecipazione.setPersona(persona1);
-
         partecipazioneDAO.save(partecipazione);
 
+
+        GaraDiAtletica gara = new GaraDiAtletica();
+//        Persona persona2 = new Persona();
+//        persona2.setNome("Francesco");
+//        persona2.setCognome("totti");
 
 
 

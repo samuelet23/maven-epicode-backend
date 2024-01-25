@@ -1,9 +1,10 @@
-package it.epicode.week3.day3.entities;
+package it.epicode.week3.day34.entities;
 
+import it.epicode.week3.day34.entities.sottoClassiEvento.GaraDiAtletica;
+import it.epicode.week3.day34.entities.type.Sesso;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.EventObject;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,11 @@ public class Persona {
     private LocalDate dataDiNascita;
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
+
+    @ManyToOne
+    @JoinColumn(name = "atleta_fk")
+    private GaraDiAtletica atleta;
+
 
     @OneToMany(mappedBy = "persona", cascade = CascadeType.REMOVE)
 //    @OrderBy ("Evento.dataEvento ASC")
@@ -103,5 +109,12 @@ public class Persona {
 
     public void setPartecipazioni(List<Partecipazione> partecipazioni) {
         this.partecipazioni = partecipazioni;
+    }
+    public GaraDiAtletica getAtleta() {
+        return atleta;
+    }
+
+    public void setAtleta(GaraDiAtletica atleta) {
+        this.atleta = atleta;
     }
 }

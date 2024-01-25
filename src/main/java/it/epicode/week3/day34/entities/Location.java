@@ -1,4 +1,4 @@
-package it.epicode.week3.day3.entities;
+package it.epicode.week3.day34.entities;
 
 import jakarta.persistence.*;
 
